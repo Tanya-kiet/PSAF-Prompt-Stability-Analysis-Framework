@@ -928,9 +928,15 @@ with tabs[2]:
                 paper_bgcolor="rgba(0,0,0,0)",
                 plot_bgcolor="#0d1117",
                 font=dict(color="#8b949e", family="Inter"),
-                yaxis=dict(range=[0, 1.18], gridcolor="#1c2128",
-                           tickfont=dict(size=10), title="Cosine similarity",
-                           titlefont=dict(size=11, color="#484f58")),
+                yaxis=dict(
+                  range=[0, 1.18],
+                  gridcolor="#1c2128",
+                  tickfont=dict(size=10),
+                  title=dict(
+                    text="Cosine similarity",
+                    font=dict(size=11, color="#484f58")
+                  )
+                ),
                 xaxis=dict(gridcolor="#1c2128", tickfont=dict(size=10)),
                 margin=dict(l=10, r=10, t=10, b=10),
                 height=300,
