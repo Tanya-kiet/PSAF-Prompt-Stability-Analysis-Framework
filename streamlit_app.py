@@ -544,8 +544,6 @@ with st.sidebar:
           </div>
         </div>
         """, unsafe_allow_html=True)
-        with st.expander("How to fix"):
-            st.code("export GROQ_API_KEY='gsk_...'", language="bash")
 
     st.markdown('<div style="height:0.5rem"></div>', unsafe_allow_html=True)
 
@@ -1193,4 +1191,3 @@ with tabs[4]:
             )
             st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
             st.plotly_chart(fig_cat, use_container_width=True)
-
