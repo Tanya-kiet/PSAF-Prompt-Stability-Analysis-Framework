@@ -69,12 +69,12 @@ st.markdown("""
   --warning-light:#FFFBEB;
   --error:        #DC2626;
   --error-light:  #FEF2F2;
-  --text-1:       #111827;
-  --text-2:       #4B5563;
-  --text-3:       #6B7280;
-  --text-4:       #9CA3AF;
-  --text-5:       #D1D5DB;
-  --text-section: #0F172A;
+  --text-1:       #0F172A;
+  --text-2:       #475569;
+  --text-3:       #64748B;
+  --text-4:       #94A3B8;
+  --text-5:       #CBD5E1;
+  --text-section: #1E293B;
   --radius-s:     6px;
   --radius-m:     10px;
   --radius-l:     12px;
@@ -158,12 +158,12 @@ section[data-testid="stSidebar"] .stCheckbox {
 
 /* Sidebar section heading */
 .sb-section {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-section);
-  padding: 0.65rem 1.25rem 0.4rem;
+  color: var(--text-2);
+  padding: 0.45rem 1.25rem 0.4rem;
   display: block;
 }
 
@@ -175,56 +175,52 @@ section[data-testid="stSidebar"] .stCheckbox {
 
 /* sb-label: backward compat alias */
 .sb-label {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-section);
-  padding: 0.65rem 1.25rem 0.4rem;
+  color: var(--text-2);
+  padding: 0.45rem 1.25rem 0.4rem;
   display: block;
 }
 
 /* ═══════════════════════════════════════
    PROVIDER STATUS
 ═══════════════════════════════════════ */
-.provider-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-m);
-  padding: 0.75rem 1rem;
-  margin: 0 1rem 0.55rem;
-  box-shadow: var(--shadow-m);
+.provider-row {
   display: flex;
   align-items: flex-start;
-  gap: 0.65rem;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
 }
+.provider-row:last-child { border-bottom: none; }
 .provider-dot {
-  width: 9px; height: 9px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
-  margin-top: 0.3rem;
+  margin-top: 0.35rem;
 }
-.dot-ok  { background: var(--success); box-shadow: 0 0 0 3px rgba(22,163,74,0.18); }
-.dot-err { background: var(--error);   box-shadow: 0 0 0 3px rgba(220,38,38,0.15); }
+.dot-ok  { background: var(--success); }
+.dot-err { background: var(--error); }
 .provider-info { flex: 1; min-width: 0; }
 .provider-name {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--text-1);
   line-height: 1.3;
 }
-.provider-status-tag {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--success);
-  margin-top: 0.05rem;
-}
-.provider-status-tag.err { color: var(--error); }
 .provider-meta {
-  font-size: 0.77rem;
+  font-size: 0.78rem;
   color: var(--text-3);
   font-family: 'JetBrains Mono', monospace;
   margin-top: 0.12rem;
+}
+.provider-status-tag {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-3);
+  margin-top: 0.06rem;
 }
 
 /* ═══════════════════════════════════════
@@ -289,7 +285,7 @@ button[kind="secondary"]:hover {
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-m) !important;
   color: var(--text-1) !important;
-  font-size: 16px !important;
+  font-size: 15px !important;
   box-shadow: var(--shadow-s) !important;
 }
 .stSelectbox > div > div:hover,
@@ -324,7 +320,7 @@ button[kind="secondary"]:hover {
 }
 .stTabs [data-baseweb="tab"] {
   color: var(--text-3) !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   font-weight: 500 !important;
   padding: 0.55rem 1.1rem !important;
   border-radius: 0 !important;
@@ -363,7 +359,7 @@ div[data-testid="stMetric"] [data-testid="stMetricLabel"] * {
 }
 div[data-testid="stMetric"] [data-testid="stMetricValue"] {
   color: var(--text-1) !important;
-  font-size: 38px !important;
+  font-size: 28px !important;
   font-weight: 700 !important;
   letter-spacing: -0.025em !important;
 }
@@ -709,205 +705,8 @@ section[data-testid="stSidebar"] hr { margin: 0.6rem 0 !important; }
 }
 
 /* ═══════════════════════════════════════
-   NATIVE MARKDOWN CONTENT (LLM responses)
+   STATUS BADGES (kept for compat)
 ═══════════════════════════════════════ */
-div[data-testid="stMarkdownContainer"] {
-  color: var(--text-1) !important;
-  font-size: 17px !important;
-  line-height: 1.75 !important;
-}
-div[data-testid="stMarkdownContainer"] p {
-  color: var(--text-1) !important;
-  font-size: 17px !important;
-  line-height: 1.75 !important;
-  margin-bottom: 0.85rem !important;
-}
-div[data-testid="stMarkdownContainer"] h1 {
-  color: var(--text-section) !important;
-  font-size: 30px !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.02em !important;
-  margin: 1.25rem 0 0.65rem !important;
-  border-bottom: 1px solid var(--border) !important;
-  padding-bottom: 0.4rem !important;
-}
-div[data-testid="stMarkdownContainer"] h2 {
-  color: var(--text-section) !important;
-  font-size: 26px !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.01em !important;
-  margin: 1.1rem 0 0.55rem !important;
-}
-div[data-testid="stMarkdownContainer"] h3 {
-  color: var(--text-section) !important;
-  font-size: 22px !important;
-  font-weight: 600 !important;
-  margin: 1rem 0 0.5rem !important;
-}
-div[data-testid="stMarkdownContainer"] h4 {
-  color: var(--text-1) !important;
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  margin: 0.9rem 0 0.45rem !important;
-}
-div[data-testid="stMarkdownContainer"] h5,
-div[data-testid="stMarkdownContainer"] h6 {
-  color: var(--text-1) !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  margin: 0.8rem 0 0.4rem !important;
-}
-div[data-testid="stMarkdownContainer"] strong,
-div[data-testid="stMarkdownContainer"] b {
-  color: var(--text-section) !important;
-  font-weight: 700 !important;
-}
-div[data-testid="stMarkdownContainer"] em,
-div[data-testid="stMarkdownContainer"] i {
-  color: var(--text-1) !important;
-  font-style: italic !important;
-}
-div[data-testid="stMarkdownContainer"] ul,
-div[data-testid="stMarkdownContainer"] ol {
-  color: var(--text-1) !important;
-  font-size: 17px !important;
-  line-height: 1.75 !important;
-  padding-left: 1.5rem !important;
-  margin-bottom: 0.85rem !important;
-}
-div[data-testid="stMarkdownContainer"] li {
-  color: var(--text-1) !important;
-  margin-bottom: 0.35rem !important;
-}
-div[data-testid="stMarkdownContainer"] li::marker {
-  color: var(--accent) !important;
-}
-div[data-testid="stMarkdownContainer"] blockquote {
-  border-left: 3px solid var(--accent) !important;
-  padding: 0.5rem 0.5rem 0.5rem 1rem !important;
-  margin: 0.75rem 0 !important;
-  background: var(--accent-light) !important;
-  border-radius: 0 var(--radius-s) var(--radius-s) 0 !important;
-  color: var(--text-2) !important;
-}
-div[data-testid="stMarkdownContainer"] code {
-  background: var(--card-alt) !important;
-  color: #BE185D !important;
-  border-radius: 4px !important;
-  padding: 0.15em 0.4em !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: 0.88em !important;
-  border: 1px solid var(--border) !important;
-}
-div[data-testid="stMarkdownContainer"] pre {
-  background: #0F172A !important;
-  border-radius: var(--radius-m) !important;
-  padding: 1rem 1.25rem !important;
-  overflow-x: auto !important;
-  border: none !important;
-  margin-bottom: 1rem !important;
-}
-div[data-testid="stMarkdownContainer"] pre code {
-  background: transparent !important;
-  color: #E2E8F0 !important;
-  border: none !important;
-  padding: 0 !important;
-  font-size: 0.9rem !important;
-}
-div[data-testid="stMarkdownContainer"] table {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  font-size: 15px !important;
-  margin-bottom: 1rem !important;
-}
-div[data-testid="stMarkdownContainer"] th {
-  background: var(--card-alt) !important;
-  color: var(--text-section) !important;
-  font-weight: 700 !important;
-  font-size: 14px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  padding: 0.6rem 0.85rem !important;
-  border: 1px solid var(--border) !important;
-}
-div[data-testid="stMarkdownContainer"] td {
-  color: var(--text-1) !important;
-  padding: 0.5rem 0.85rem !important;
-  border: 1px solid var(--border) !important;
-}
-div[data-testid="stMarkdownContainer"] tr:nth-child(even) td {
-  background: var(--card-alt) !important;
-}
-div[data-testid="stMarkdownContainer"] a {
-  color: var(--accent) !important;
-  text-decoration: underline !important;
-}
-
-/* ═══════════════════════════════════════
-   PROMPT SENT TO LLM BOX
-═══════════════════════════════════════ */
-.prompt-sent-box {
-  background: rgba(37,99,235,0.04);
-  border: 1px solid rgba(37,99,235,0.2);
-  border-radius: var(--radius-m);
-  padding: 0.75rem 1rem;
-  font-size: 16px;
-  color: #2563EB;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
-}
-
-/* ═══════════════════════════════════════
-   SIDEBAR DENSITY — keyed containers
-═══════════════════════════════════════ */
-.st-key-sb_experiment_card,
-.st-key-sb_run_card {
-  padding: 0.1rem 1.1rem 0.75rem !important;
-}
-section[data-testid="stSidebar"] [data-testid="stButton"],
-section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
-  margin-bottom: 0.2rem !important;
-}
-section[data-testid="stSidebar"] [data-testid="stVerticalBlockBorderWrapper"] {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* ═══════════════════════════════════════
-   VAR-TEXT body text size
-═══════════════════════════════════════ */
-.var-text { color: var(--text-1); font-size: 16px; line-height: 1.65; }
-
-/* ═══════════════════════════════════════
-   VISIBLE TEXT OVERRIDES — global dark-theme remnant cleanup
-═══════════════════════════════════════ */
-/* Any stray white text that might still be hidden on white bg */
-.stApp p, .stApp span:not([class*="badge"]):not([class*="pill"]) {
-  color: inherit;
-}
-/* Native Streamlit text elements */
-[data-testid="stText"] { color: var(--text-1) !important; }
-[data-testid="stCaption"] { color: var(--text-3) !important; }
-.stApp .stMarkdown { color: var(--text-1) !important; }
-/* Selectbox dropdown menu items */
-[data-baseweb="menu"] [role="option"] { color: var(--text-1) !important; }
-/* Radio and number inputs */
-.stRadio label { color: var(--text-1) !important; font-size: 16px !important; }
-.stNumberInput label { color: var(--text-2) !important; font-size: 15px !important; }
-/* Alert / info boxes */
-[data-testid="stAlert"] { color: var(--text-1) !important; }
-
-/* Status box (st.status) */
-[data-testid="stStatusWidget"] label,
-[data-testid="stStatusWidget"] div { color: var(--text-1) !important; }
-
-/* ═══════════════════════════════════════
-   SIDEBAR LOGO SIZE BUMP
-═══════════════════════════════════════ */
-.sb-logo-title { font-size: 1.1rem; }
-.sb-logo-sub   { font-size: 0.82rem; }
-
-/* STATUS BADGE (kept for compat) */
 .status-badge { display: none; }
 </style>
 """, unsafe_allow_html=True)
@@ -976,20 +775,22 @@ with st.sidebar:
 
     st.markdown('<span class="sb-section">Providers</span>', unsafe_allow_html=True)
     st.markdown(f"""
-    <div class="provider-card">
-      <div class="provider-dot {groq_dot}"></div>
-      <div class="provider-info">
-        <div class="provider-name">Groq</div>
-        <div class="provider-status-tag{'' if api_ok else ' err'}">{groq_tag}</div>
-        <div class="provider-meta">llama-3.1-8b-instant</div>
+    <div style="margin:0 1.25rem 0.75rem;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden;">
+      <div class="provider-row">
+        <div class="provider-dot {groq_dot}"></div>
+        <div class="provider-info">
+          <div class="provider-name">Groq</div>
+          <div class="provider-status-tag">{groq_tag}</div>
+          <div class="provider-meta">llama-3.1-8b-instant</div>
+        </div>
       </div>
-    </div>
-    <div class="provider-card">
-      <div class="provider-dot {oai_dot}"></div>
-      <div class="provider-info">
-        <div class="provider-name">OpenAI</div>
-        <div class="provider-status-tag{'' if _openai_key_ok else ' err'}">{oai_tag}</div>
-        <div class="provider-meta">gpt-4o-mini · Research only</div>
+      <div class="provider-row" style="border-bottom:none;">
+        <div class="provider-dot {oai_dot}"></div>
+        <div class="provider-info">
+          <div class="provider-name">OpenAI</div>
+          <div class="provider-status-tag">{oai_tag}</div>
+          <div class="provider-meta">gpt-4o-mini · Research only</div>
+        </div>
       </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1048,12 +849,12 @@ with st.sidebar:
         st.markdown('<span class="sb-section">Session</span>', unsafe_allow_html=True)
         st.markdown(f"""
         <div style="padding:0 1.25rem 0.5rem;">
-          <div style="font-size:0.88rem;color:#6B7280;">
+          <div style="font-size:0.88rem;color:#64748B;">
             <span style="font-family:'JetBrains Mono',monospace;font-weight:700;
-            color:#111827;">{n_cached}</span>
+            color:#0F172A;">{n_cached}</span>
             &nbsp;question{"s" if n_cached != 1 else ""} cached
           </div>
-          {"<div style='font-size:0.78rem;color:#6B7280;margin-top:0.2rem;'>Last run: " + st.session_state.last_run_time + "</div>" if st.session_state.last_run_time else ""}
+          {"<div style='font-size:0.78rem;color:#64748B;margin-top:0.2rem;'>Last run: " + st.session_state.last_run_time + "</div>" if st.session_state.last_run_time else ""}
         </div>
         """, unsafe_allow_html=True)
         if st.button("🗑  Clear session", key="clear_session", use_container_width=True):
@@ -1116,7 +917,7 @@ if run_clicked:
 
             stage_html_placeholder.markdown(render_stages(), unsafe_allow_html=True)
             log_placeholder.markdown(
-                f"<div style='font-size:0.85rem;color:#6B7280;margin-top:0.4rem;'>"
+                f"<div style='font-size:0.85rem;color:#64748B;margin-top:0.4rem;'>"
                 f"› {messages_log[-1]}</div>",
                 unsafe_allow_html=True
             )
@@ -1294,7 +1095,7 @@ if not result:
       <div class="empty-title">Ready to analyze</div>
       <div class="empty-sub">
         Select a category and question in the sidebar, then click
-        <strong style="color:#6B7280;font-weight:500;">Run Experiment</strong>
+        <strong style="color:#64748B;font-weight:500;">Run Experiment</strong>
         to measure prompt stability across paraphrased variations.
       </div>
       <div class="steps-row">
@@ -1314,7 +1115,7 @@ if not result:
           <div class="step-desc">Explore results across tabs</div>
         </div>
       </div>
-      <div style="font-size:0.82rem;color:#6B7280;">
+      <div style="font-size:0.82rem;color:#64748B;">
         Results are cached — re-running the same question costs zero API calls.
       </div>
     </div>
@@ -1384,7 +1185,7 @@ with tabs[0]:
         </div>
         """, unsafe_allow_html=True)
         st.markdown(f"""
-        <div style="font-size:15px;color:#6B7280;line-height:1.65;">
+        <div style="font-size:15px;color:#64748B;line-height:1.65;">
           Each variation rephrases the original question with different wording
           while preserving its meaning. The LLM receives each independently.
         </div>
@@ -1429,18 +1230,22 @@ with tabs[1]:
         label = "ORIGINAL" if i == 0 else f"VARIATION {i}"
         short = vr.variation[:70] + ("…" if len(vr.variation) > 70 else "")
         with st.expander(f"{label} — {short}", expanded=(i == 0)):
-            st.markdown('<div class="resp-label">Prompt sent to LLM</div>', unsafe_allow_html=True)
-            import html as _html
-            st.markdown(
-                f'<div class="prompt-sent-box">{_html.escape(vr.variation)}</div>',
-                unsafe_allow_html=True
-            )
-            st.markdown('<div class="resp-label" style="margin-top:0.75rem;">LLM Response</div>', unsafe_allow_html=True)
-            with st.container(border=True):
-                if vr.response:
-                    st.markdown(vr.response)
-                else:
-                    st.markdown("*(no response received)*")
+            st.markdown(f"""
+            <div style="margin-bottom:0.5rem;">
+              <div class="resp-label">Prompt sent to LLM</div>
+              <div style="background:rgba(37,99,235,0.04);border:1px solid rgba(37,99,235,0.2);border-radius:10px;
+              padding:0.75rem;font-size:15px;color:#2563EB;line-height:1.55;">
+                {vr.variation}
+              </div>
+            </div>
+            <div>
+              <div class="resp-label">LLM Response</div>
+              <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;
+              padding:0.875rem;font-size:15px;color:#0F172A;line-height:1.7;white-space:pre-wrap;">
+                {vr.response if vr.response else "*(no response received)*"}
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
 
 
 # ───────────────────────────────────────────────────────────────────────────
@@ -1563,13 +1368,13 @@ with tabs[3]:
         <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;
         padding:1.5rem;text-align:center;">
           <div style="font-size:0.78rem;font-weight:700;letter-spacing:.08em;
-          text-transform:uppercase;color:#6B7280;margin-bottom:0.75rem;">
+          text-transform:uppercase;color:#64748B;margin-bottom:0.75rem;">
             Prompt Stability Index
           </div>
           <div class="psi-score-large {psi_class(result.psi_score)}">
             {result.psi_score:.1f}
           </div>
-          <div style="font-size:0.85rem;color:#6B7280;margin-top:.25rem;">out of 100</div>
+          <div style="font-size:0.85rem;color:#64748B;margin-top:.25rem;">out of 100</div>
           <div style="margin-top:0.75rem;font-size:0.92rem;font-weight:500;
           color:{'#15803D' if result.psi_score >= 75 else '#B45309' if result.psi_score >= 50 else '#DC2626'};">
             {psi_label(result.psi_score)}
@@ -1580,7 +1385,7 @@ with tabs[3]:
     with info_col:
         st.markdown(f"""
         <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;
-        padding:1.25rem;font-size:15px;color:#6B7280;line-height:1.75;">
+        padding:1.25rem;font-size:15px;color:#64748B;line-height:1.75;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:0.9rem;
           background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;
           padding:0.5rem 0.75rem;color:#2563EB;margin-bottom:0.75rem;">
@@ -1588,22 +1393,22 @@ with tabs[3]:
           </div>
           <table style="width:100%;font-size:15px;border-collapse:collapse;">
             <tr style="border-bottom:1px solid #E2E8F0;">
-              <td style="padding:0.4rem 0;color:#6B7280;width:24px;">S</td>
-              <td style="padding:0.4rem 0.5rem;color:#111827;font-weight:500;">Semantic similarity</td>
+              <td style="padding:0.4rem 0;color:#64748B;width:24px;">S</td>
+              <td style="padding:0.4rem 0.5rem;color:#0F172A;font-weight:500;">Semantic similarity</td>
               <td style="padding:0.4rem 0;color:#2563EB;font-family:'JetBrains Mono',monospace;text-align:right;">50%</td>
-              <td style="padding:0.4rem 0 0.4rem 1rem;color:#111827;font-family:'JetBrains Mono',monospace;text-align:right;">{result.semantic_similarity:.3f}</td>
+              <td style="padding:0.4rem 0 0.4rem 1rem;color:#0F172A;font-family:'JetBrains Mono',monospace;text-align:right;">{result.semantic_similarity:.3f}</td>
             </tr>
             <tr style="border-bottom:1px solid #E2E8F0;">
-              <td style="padding:0.4rem 0;color:#6B7280;">K</td>
-              <td style="padding:0.4rem 0.5rem;color:#111827;font-weight:500;">Keyword consistency</td>
+              <td style="padding:0.4rem 0;color:#64748B;">K</td>
+              <td style="padding:0.4rem 0.5rem;color:#0F172A;font-weight:500;">Keyword consistency</td>
               <td style="padding:0.4rem 0;color:#2563EB;font-family:'JetBrains Mono',monospace;text-align:right;">30%</td>
-              <td style="padding:0.4rem 0 0.4rem 1rem;color:#111827;font-family:'JetBrains Mono',monospace;text-align:right;">{result.keyword_consistency:.3f}</td>
+              <td style="padding:0.4rem 0 0.4rem 1rem;color:#0F172A;font-family:'JetBrains Mono',monospace;text-align:right;">{result.keyword_consistency:.3f}</td>
             </tr>
             <tr>
-              <td style="padding:0.4rem 0;color:#6B7280;">L</td>
-              <td style="padding:0.4rem 0.5rem;color:#111827;font-weight:500;">Length consistency</td>
+              <td style="padding:0.4rem 0;color:#64748B;">L</td>
+              <td style="padding:0.4rem 0.5rem;color:#0F172A;font-weight:500;">Length consistency</td>
               <td style="padding:0.4rem 0;color:#2563EB;font-family:'JetBrains Mono',monospace;text-align:right;">20%</td>
-              <td style="padding:0.4rem 0 0.4rem 1rem;color:#111827;font-family:'JetBrains Mono',monospace;text-align:right;">{result.length_consistency:.3f}</td>
+              <td style="padding:0.4rem 0 0.4rem 1rem;color:#0F172A;font-family:'JetBrains Mono',monospace;text-align:right;">{result.length_consistency:.3f}</td>
             </tr>
           </table>
         </div>
@@ -1674,7 +1479,7 @@ with tabs[3]:
         <div style="font-size:0.78rem;font-weight:700;letter-spacing:.06em;
         text-transform:uppercase;color:#15803D;margin-bottom:.3rem;">Highly Stable</div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;color:#15803D;">75 – 100</div>
-        <div style="font-size:0.85rem;color:#6B7280;margin-top:.3rem;">Wording barely affects answer</div>
+        <div style="font-size:0.85rem;color:#64748B;margin-top:.3rem;">Wording barely affects answer</div>
       </div>
       <div style="flex:1;padding:0.875rem 1rem;
         background:{'#FFFBEB' if 50 <= result.psi_score < 75 else '#FFFFFF'};
@@ -1682,14 +1487,14 @@ with tabs[3]:
         <div style="font-size:0.78rem;font-weight:700;letter-spacing:.06em;
         text-transform:uppercase;color:#B45309;margin-bottom:.3rem;">Moderately Stable</div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;color:#B45309;">50 – 74</div>
-        <div style="font-size:0.85rem;color:#6B7280;margin-top:.3rem;">Some drift across paraphrases</div>
+        <div style="font-size:0.85rem;color:#64748B;margin-top:.3rem;">Some drift across paraphrases</div>
       </div>
       <div style="flex:1;padding:0.875rem 1rem;
         background:{'#FEF2F2' if result.psi_score < 50 else '#FFFFFF'};">
         <div style="font-size:0.78rem;font-weight:700;letter-spacing:.06em;
         text-transform:uppercase;color:#DC2626;margin-bottom:.3rem;">Unstable</div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;color:#DC2626;">0 – 49</div>
-        <div style="font-size:0.85rem;color:#6B7280;margin-top:.3rem;">Wording significantly changes answer</div>
+        <div style="font-size:0.85rem;color:#64748B;margin-top:.3rem;">Wording significantly changes answer</div>
       </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1703,9 +1508,9 @@ with tabs[4]:
 
     if len(all_results) < 2:
         st.markdown("""
-        <div style="text-align:center;padding:3rem 2rem;color:#6B7280;">
+        <div style="text-align:center;padding:3rem 2rem;color:#64748B;">
           <div style="font-size:2rem;margin-bottom:0.75rem;">📋</div>
-          <div style="font-size:1rem;color:#6B7280;margin-bottom:.5rem;">
+          <div style="font-size:1rem;color:#64748B;margin-bottom:.5rem;">
             Run experiments across multiple questions to compare categories here.
           </div>
           <div style="font-size:0.85rem;">
@@ -1852,14 +1657,14 @@ with tabs[5]:
     # ── Empty state ──────────────────────────────────────────────────────────
     if not multi_runs:
         st.markdown("""
-        <div style="text-align:center;padding:4rem 2rem;color:#6B7280;">
+        <div style="text-align:center;padding:4rem 2rem;color:#64748B;">
           <div style="font-size:2.5rem;margin-bottom:0.75rem;">🔬</div>
-          <div style="font-size:1rem;font-weight:600;color:#6B7280;margin-bottom:0.5rem;">
+          <div style="font-size:1rem;font-weight:600;color:#64748B;margin-bottom:0.5rem;">
             No comparison data yet
           </div>
-          <div style="font-size:0.92rem;color:#6B7280;max-width:380px;margin:0 auto;">
-            Switch to <strong style="color:#111827;">🧠 Research Mode</strong> in the sidebar
-            and click <strong style="color:#111827;">▶ Run Experiment</strong>
+          <div style="font-size:0.92rem;color:#64748B;max-width:380px;margin:0 auto;">
+            Switch to <strong style="color:#0F172A;">🧠 Research Mode</strong> in the sidebar
+            and click <strong style="color:#0F172A;">▶ Run Experiment</strong>
             to generate multi-provider PSI comparison results.
           </div>
         </div>
@@ -1890,13 +1695,13 @@ with tabs[5]:
         <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;
                     padding:1rem 1.25rem;margin-bottom:1rem;">
           <div style="font-size:0.78rem;font-weight:700;letter-spacing:.08em;
-                      text-transform:uppercase;color:#6B7280;margin-bottom:0.35rem;">
+                      text-transform:uppercase;color:#64748B;margin-bottom:0.35rem;">
             Compared Prompt
           </div>
-          <div style="font-size:1rem;color:#111827;font-weight:500;">
+          <div style="font-size:1rem;color:#0F172A;font-weight:500;">
             {active.prompt}
           </div>
-          <div style="font-size:0.85rem;color:#6B7280;margin-top:0.35rem;">
+          <div style="font-size:0.85rem;color:#64748B;margin-top:0.35rem;">
             Category: {active.category}
           </div>
         </div>
@@ -1929,7 +1734,7 @@ with tabs[5]:
                   <span style="color:#DC2626;font-weight:600;">
                     ✗ {fp_name.upper()} — Provider failed (partial results shown)
                   </span><br/>
-                  <span style="color:#6B7280;font-size:0.85rem;font-family:'JetBrains Mono',monospace;">
+                  <span style="color:#64748B;font-size:0.85rem;font-family:'JetBrains Mono',monospace;">
                     {fp.error}
                   </span>
                 </div>
@@ -1947,7 +1752,7 @@ with tabs[5]:
                 <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;
                             padding:1.1rem;text-align:center;">
                   <div style="font-size:2rem;margin-bottom:0.4rem;">{_medal(idx)}</div>
-                  <div style="font-size:0.95rem;font-weight:600;color:#111827;
+                  <div style="font-size:0.95rem;font-weight:600;color:#0F172A;
                               text-transform:capitalize;">{prov}</div>
                   <div style="font-size:1.6rem;font-weight:700;font-family:'JetBrains Mono',monospace;
                               color:{color};margin:0.4rem 0;">{res.psi_score:.1f}</div>
@@ -2243,7 +2048,7 @@ with tabs[5]:
             )
 
         st.markdown(
-            "<div style='font-size:0.85rem;color:#6B7280;margin-top:0.4rem;'>"
+            "<div style='font-size:0.85rem;color:#64748B;margin-top:0.4rem;'>"
             "Exports reflect the most recent All Models run shown above. "
             "Re-run an experiment to refresh.</div>",
             unsafe_allow_html=True,
